@@ -1,0 +1,60 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ type-form.component.html Copyright ©️ 2020 by the HabitRabbit developers (ardianq, lachchri16, sweiland, YellowIcicle).
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<form (ngSubmit)="onSubmit()" *ngIf="userService.hasPermission('HabitRabbit.add_type') && isSuperUser" [formGroup]="typeForm"
+      novalidate>
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>
+        <span *ngIf="!typeForm.controls.id.value">Create Type</span>
+        <span *ngIf="typeForm.controls.id.value">Update {{typeForm.controls.name.value}}</span>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input formControlName="name" matInput placeholder="Name" required type="text">
+            <mat-hint align="end">Name of the Type</mat-hint>
+            <mat-error *ngIf="typeForm.controls.name.hasError('required')">Name is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input formControlName="duration" matInput placeholder="Duration" type="number">
+            <mat-hint align="end">Duration of the Type</mat-hint>
+            <mat-error *ngIf="typeForm.controls.duration.hasError('max')">Max duration is 32767</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input formControlName="helpful_link" matInput placeholder="Helpful Link" type="url">
+            <mat-hint align="end">Helpful Link for the type</mat-hint>
+            <mat-error *ngIf="typeForm.controls.helpful_link.hasError('pattern')">Please enter a URL with
+              Protocol-Prefix (HTTP(s)). Ex: https://github.com/sweiland/HabitRabbit
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-checkbox formControlName="is_custom">Custom Type?</mat-checkbox>
+        </div>
+      </div>
+
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button [disabled]="!typeForm.valid" color="primary" mat-raised-button type="submit">
+        <span *ngIf="!typeForm.controls.id.value">Create</span>
+        <span *ngIf="typeForm.controls.id.value">Update</span>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

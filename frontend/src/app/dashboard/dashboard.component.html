@@ -1,0 +1,283 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ dashboard.component.html Copyright ©️ 2020 by the HabitRabbit developers (ardianq, lachchri16, sweiland, YellowIcicle).
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<div *ngIf="userService.hasPermission('HabitRabbit.view_habit')" class="grid-container">
+  <h1 class="mat-h1">Dashboard
+    <button (click)="generatePdf()" class="exportPDF" color="primary" mat-raised-button type="submit">Export Profile
+    </button>
+  </h1>
+  <mat-grid-list (window:resize)="onResize($event)" [cols]="breakpoint" rowHeight="300px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card *ngIf="card.title === 'User'" class="dashboard-card">
+        <mat-card class="userCard">
+          <mat-card-header>
+          </mat-card-header>
+          <mat-card-title class="levelTitle">
+            STATS
+          </mat-card-title>
+          <mat-card-subtitle class="stats">
+            <h2>⭐️ Level: {{level}} &emsp; 🥕 Score: {{score}}</h2>
+          </mat-card-subtitle>
+          <mat-card-title>
+            USER INFORMATION
+          </mat-card-title>
+          <mat-card-content class="dashboard-card-content">
+            <div class="userWrapper">
+              <div class="userStats">
+                <div class="userFirst">
+                  <div class="stat statfirst">Username:
+                    <div [ngStyle]="{'color': profileColor}" class="statValue">{{username}}</div>
+                  </div>
+                  <div class="stat statsecond">First Name:
+                    <div class="statValue">{{firstname}}</div>
+                  </div>
+                </div>
+                <div class="userSecond">
+                  <div class="stat statfirst">Last Name:
+                    <div class="statValue">{{lastname}}</div>
+                  </div>
+                  <div class="stat statsecond">E-Mail:
+                    <div class="statValue">{{email}}</div>
+                  </div>
+                </div>
+                <div class="userThird">
+                  <div class="stat statfirst">
+                    <div class="statValue test">
+                      <button (click)="openDialogUser()"
+                              class="userButton" color="primary"
+                              mat-raised-button type="submit">Edit
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <button (click)="openDialog()"
+                              class="userButton" color="accent"
+                              mat-raised-button type="submit">Change PW
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div [ngStyle]="{'background-color': profileColor}" class="profileContainer">
+                <img *ngIf="profileImage" [src]="profileImage" class="profilePicture">
+                <div [ngStyle]="{'background-color': profileColor, 'opacity': 0.8}" class="changePicture">
+                  <button class="buttonPicture" routerLink="../profile-picture-form"></button>
+                  Change Profile<br>Picture
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-card>
+      <mat-card *ngIf="card.title === 'Active Habits'" class="dashboard-card" style="overflow: scroll">
+        <mat-card-header>
+          <mat-card-title class="message-header">
+            🗓 {{card.title}}
+            <ng-container *ngIf="!empty">
+              <button [matMenuTriggerFor]="menu" aria-label="Toggle menu" class="more-button" mat-icon-button>
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button (click)="enableEdit()" mat-menu-item><span *ngIf="!habitsEditable">Enable Edit Mode</span><span
+                  *ngIf="habitsEditable">Disable Edit Mode</span></button>
+                <a (click)="openAddDialog()" mat-menu-item type="button">Add Habit</a>
+              </mat-menu>
+            </ng-container>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngIf="!empty" class="dashboard-card-content">
+          <mat-card *ngFor="let habit of filteredHabits" class="example-card">
+            <mat-card-title>{{habit.name}}
+              <div class="habitsymbol">{{getCategorySymbol(habit.type)}}{{getPrioSym(habit)}}</div>
+            </mat-card-title>
+            <mat-card-subtitle>You've been going for {{habit.clicked}} days!
+              <span *ngIf="isNumber(habit.left)">Only {{habit.left}} days left!</span>
+              <br/>
+              <code class="timeframe">{{(habit.start_date | date)}}</code>
+              <code *ngIf="habit.end_date !== null" class="timeframe">{{' ➡️ ' + (habit.end_date | date)}}</code>
+            </mat-card-subtitle>
+            <mat-card-content>
+              <div *ngIf="isNumber(habit.percentage)" class="progress">
+                <div class="row">
+                  <mat-progress-bar #tooltip="matTooltip" *ngIf="!habit.is_finished"
+                                    [matTooltip]="'(' + habit.percentage + '%)'"
+                                    [value]="habit.percentage"
+                                    color="accent"
+                                    matTooltipHideDelay="100"
+                                    matTooltipPosition="below" mode="determinate"></mat-progress-bar>
+                  <mat-progress-bar #tooltip="matTooltip" *ngIf="habit.failed"
+                                    [matTooltip]="'(' + habit.percentage + '%)'"
+                                    [value]="habit.percentage"
+                                    color="warn"
+                                    matTooltipHideDelay="100"
+                                    matTooltipPosition="below" mode="determinate"></mat-progress-bar>
+                  <mat-progress-bar #tooltip="matTooltip" *ngIf="habit.percentage > 50 && habit.is_finished"
+                                    [matTooltip]="'(' + habit.percentage + '%)'"
+                                    [value]="habit.percentage"
+                                    matTooltipHideDelay="100"
+                                    matTooltipPosition="below" mode="determinate"></mat-progress-bar>
+                  <button #tooltip="matTooltip" (click)="logActive(habit)"
+                          *ngIf="!habit.today"
+                          color="primary"
+                          mat-fab
+                          matTooltip="Log your progress here! ⬇️"
+                          matTooltipHideDelay="100"
+                          matTooltipPosition="above">
+                    <mat-icon>check</mat-icon>
+                  </button>
+                  <button #tooltip="matTooltip" *ngIf="habit.today && !habit.is_finished"
+                          [disabled]="true"
+                          mat-fab
+                          matTooltip="Log your progress here! ⬇️"
+                          matTooltipHideDelay="100"
+                          matTooltipPosition="above"
+                          style="color: green;">
+                    <mat-icon>check</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </mat-card-content>
+            <mat-card-actions *ngIf="habitsEditable && !habit.is_finished">
+              <button (click)="openHabitDialog(habit)" color="primary" mat-raised-button>Edit</button>
+              <button (click)="deleteHabit(habit.id)" color="warn" mat-raised-button>Delete</button>
+            </mat-card-actions>
+          </mat-card>
+        </mat-card-content>
+        <mat-card-content *ngIf="empty" class="dashboard-card-content">
+          <mat-card class="example-card">
+            <mat-card-title>
+              Add your Habits here!
+            </mat-card-title>
+            <mat-card-content>
+              <button (click)="openAddDialog()" color="primary" mat-fab>
+                <mat-icon>add</mat-icon>
+              </button>
+            </mat-card-content>
+          </mat-card>
+        </mat-card-content>
+      </mat-card>
+      <mat-card *ngIf="card.title === 'Charts' && !empty" class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title class="message-header">
+            📊 {{card.title}}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <mat-card class="example-card">
+            <mat-tab-group>
+              <mat-tab label="Habits">
+                <ngx-charts-pie-chart
+                  [animations]="true"
+                  [doughnut]="isDoughnut"
+                  [gradient]="gradient"
+                  [labels]="showLabels"
+                  [legendPosition]="legendPosition"
+                  [legend]="showLegend"
+                  [results]="habitChart"
+                  [scheme]="colorScheme"
+                  [view]="">
+                </ngx-charts-pie-chart>
+              </mat-tab>
+              <mat-tab label="Points">
+                <ngx-charts-area-chart
+                  [animations]="true"
+                  [curve]="curveStepAfter"
+                  [legend]="false"
+                  [results]="pointChart"
+                  [scheme]="pointScheme"
+                  [showXAxisLabel]="false"
+                  [showYAxisLabel]="showLabels"
+                  [view]=""
+                  [yAxisLabel]="'Points'"
+                  [yAxis]="true">
+                </ngx-charts-area-chart>
+              </mat-tab>
+              <mat-tab label="Types">
+                <ngx-charts-bar-vertical
+                  [animations]="true"
+                  [gradient]="gradient"
+                  [legendPosition]="legendPosition"
+                  [legend]="showLegend"
+                  [noBarWhenZero]="true"
+                  [results]="typeChart"
+                  [scheme]="colorScheme"
+                  [view]="">
+                </ngx-charts-bar-vertical>
+              </mat-tab>
+            </mat-tab-group>
+          </mat-card>
+        </mat-card-content>
+      </mat-card>
+      <mat-card *ngIf="card.title === 'Daily Message' && !empty" class="dashboard-card">
+        <mat-card class="messageCard">
+          <mat-card-header>
+            <mat-card-title class="message-header">📫 {{card.title}}</mat-card-title>
+            <mat-card-subtitle class="dailyMessageC">
+              <span class="dailyMessage">"{{dailyMessage}}"<br>
+                <span class="signature">-Habit Rabbit Team</span>
+              </span>
+            </mat-card-subtitle>
+            <mat-card-content>
+              <button (click)=goHelpfulLink() class="helpButton" color="primary" mat-raised-button type="button">Find
+                out more
+              </button>
+            </mat-card-content>
+          </mat-card-header>
+        </mat-card>
+      </mat-card>
+      <mat-card *ngIf="card.title === 'Friends'" class="dashboard-card" style="overflow: scroll">
+        <mat-card-header class="friendsHeader">
+          <mat-card-title class="message-header">
+            👨‍👩‍👧‍👦 {{card.title}}
+          </mat-card-title>
+
+          <span class="friendspacer"></span>
+          <mat-form-field class="friendsFormField">
+            <input [formControl]="friendsForm" [matAutocomplete]="auto" id="mat-input-0" matInput
+                   placeholder="Add Friend" type="text">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option (click)="onEnterFriend(user)" *ngFor="let user of filteredOptions | async"
+                          [value]="user.username">
+                {{user.username }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <mat-card *ngIf="friends !== undefined && friends.length !== 0">
+            <mat-card-content>
+              <table [dataSource]="dataSource" mat-table matSort>
+                <ng-container matColumnDef="username">
+                  <th *matHeaderCellDef mat-header-cell mat-sort-header> Username</th>
+                  <td *matCellDef="let friend" mat-cell> {{friend.username}} </td>
+                </ng-container>
+                <ng-container matColumnDef="score">
+                  <th *matHeaderCellDef mat-header-cell mat-sort-header> Score</th>
+                  <td *matCellDef="let friend" mat-cell> {{friend.score}}🥕</td>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                  <th *matHeaderCellDef mat-header-cell mat-sort-header></th>
+                  <td *matCellDef="let friend" class="friendsActions" mat-cell>
+                    <button (click)="removeFriend(friend.id)" class="friend-remove-button" mat-raised-button><i
+                      class="material-icons">delete_forever</i></button>
+                  </td>
+                </ng-container>
+                <tr *matHeaderRowDef="displayedColumnsFriends" mat-header-row></tr>
+                <tr *matRowDef="let row; columns: displayedColumnsFriends;" mat-row></tr>
+              </table>
+            </mat-card-content>
+          </mat-card>
+          <mat-paginator #paginator
+                         [pageIndex]="0"
+                         [pageSize]="3">
+          </mat-paginator>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+<footer><span class="footertext">&#9400;&ensp;️2020 HabitRabbit Team 🥕🐰</span>
+  <button class="faqbutton" color="warn" mat-raised-button routerLink="../faq">FAQ</button>
+</footer>

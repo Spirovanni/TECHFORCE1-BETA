@@ -1,0 +1,43 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ login.component.html Copyright ©️ 2020 by the HabitRabbit developers (ardianq, lachchri16, sweiland, YellowIcicle).
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<div class="login-background">
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" novalidate>
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-subtitle>Log in here!</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input formControlName="email" matInput placeholder="Username or Email">
+              <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input formControlName="password" matInput placeholder="Password" type=password>
+              <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button color="primary" mat-raised-button type="submit">Login</button>
+        <button class="signup" color="secondary" routerLink="/register" mat-raised-button type="button">Sign Up</button>
+      </mat-card-actions>
+      <p>
+        Registered Users: {{usernumber}}
+      </p>
+    </mat-card>
+  </form>
+</div>

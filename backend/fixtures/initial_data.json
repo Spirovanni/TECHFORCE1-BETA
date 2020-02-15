@@ -743,20 +743,23 @@
       "is_staff": true,
       "is_active": true,
       "date_joined": "2020-01-09T08:57:46Z",
-      "username": "sweiland",
-      "first_name": "Sebastian",
-      "last_name": "Weiland",
-      "email": "hello@sweiland.at",
-      "level": 1,
+      "username": "spirovanni",
+      "first_name": "Xavier",
+      "last_name": "Martinez",
+      "email": "blackshieldsx@gmail.com",
+      "level": 3,
       "score": "0,2,5,16,50,75",
-      "streak": 0,
+      "streak": 2,
       "profile_picture": 1,
       "groups": [
         1
       ],
       "user_permissions": [],
       "friends": [
-        4
+        2,
+        3,
+        4,
+        5
       ]
     }
   },

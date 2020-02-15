@@ -12,12 +12,16 @@
     "importHelpers": true,
     "target": "es2015",
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "src/**/*"
     ],
     "lib": [
       "es2018",
       "dom"
     ]
+//    "include": [
+//      "src/**/*" //or "../src/**/*.ts"
+//    ]
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

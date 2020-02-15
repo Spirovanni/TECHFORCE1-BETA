@@ -27,22 +27,38 @@ import {RegisterComponent} from './register/register.component';
 import {TypeFormComponent} from './type-form/type-form.component';
 import {TypeListComponent} from './type-list/type-list.component';
 import {UserListComponent} from './user-list/user-list.component';
-import {
-  MatAutocompleteModule,
-  MatButtonModule,
-  MatButtonToggleModule,
-  MatCheckboxModule,
-  MatDatepickerModule,
-  MatDialogModule,
-  MatExpansionModule,
-  MatMenuModule,
-  MatProgressBarModule,
-  MatSnackBar,
-  MatSnackBarModule,
-  MatStepperModule,
-  MatTabsModule,
-  MatTooltipModule
-} from '@angular/material';
+
+// import {
+//   MatAutocompleteModule,-
+//   MatButtonModule,-
+//   MatButtonToggleModule,-
+//   MatCheckboxModule,-
+//   MatDatepickerModule,-
+//   MatDialogModule,
+//   MatExpansionModule,-
+//   MatMenuModule,-
+//   MatProgressBarModule,-
+//   MatSnackBar,-
+//   MatSnackBarModule,-
+//   MatStepperModule,-
+//   MatTabsModule,-
+//   MatTooltipModule-
+// } from '@angular/material';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDialogModule} from '@angular/material/dialog';
+
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTooltipModule } from '@angular/material/tooltip';
 import {LayoutModule} from '@angular/cdk/layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -69,6 +85,7 @@ import {CommonModule} from '@angular/common';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }

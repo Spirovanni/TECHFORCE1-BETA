@@ -7,7 +7,7 @@ import {AbstractControl, FormBuilder, ValidatorFn, Validators} from '@angular/fo
 import * as moment from 'moment';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HabitService} from '../service/habit.service';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import {UserService} from '../service/user.service';
 
 @Component({

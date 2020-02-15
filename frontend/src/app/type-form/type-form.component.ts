@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TypeService} from '../service/type.service';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import {FAQService} from '../service/faq.service';
 import {UserService} from '../service/user.service';
 

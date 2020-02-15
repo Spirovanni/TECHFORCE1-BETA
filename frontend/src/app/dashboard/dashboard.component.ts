@@ -10,7 +10,8 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {HabitService} from '../service/habit.service';
 import * as moment from 'moment';
 import {UserService} from '../service/user.service';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef, MatSnackBar} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import {HttpClient} from '@angular/common/http';
 import {ProfilePictureService} from '../service/profile-picture.service';
 import {AbstractControl, FormBuilder, FormControl} from '@angular/forms';
@@ -69,7 +70,9 @@ export class DashboardComponent implements OnInit {
   typeChart: any[] = [];
   pointChart: any[] = [];
   password: string;
+  // eslint-disable-next-line camelcase
   password_check: string;
+  // eslint-disable-next-line camelcase
   old_password: string;
   passwordForm: any;
   userDataForm: any;
@@ -150,6 +153,7 @@ export class DashboardComponent implements OnInit {
       this.filteredOptions = this.friendsForm.valueChanges
         .pipe(
           startWith(''),
+          // eslint-disable-next-line no-underscore-dangle
           map(value => this._filter(value))
         );
     }

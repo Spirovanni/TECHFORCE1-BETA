@@ -7,7 +7,12 @@ import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 
 import {MatFaqAdminComponent} from './mat-faq-admin.component';
-import {MatButtonModule, MatCardModule, MatExpansionModule, MatIconModule, MatInputModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -45,6 +50,7 @@ describe('NgxMaterialFaqComponent', function() {
   it('should have expected <p> text', () => {
     fixture.detectChanges();
     // const p = de.nativeElement;
+    // eslint-disable-next-line max-len
     // expect(p.textContent).toEqual('Angular Library built with material design in order to provide a reusable faq (frequently asked questions) component for every project. Ask, Answer and List');
   });
 });

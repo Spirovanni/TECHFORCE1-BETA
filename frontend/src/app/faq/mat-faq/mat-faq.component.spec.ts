@@ -7,7 +7,8 @@ import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 
 import {MatFaqComponent} from './mat-faq.component';
-import {MatExpansionModule, MatToolbarModule} from '@angular/material';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 describe('MatFaqComponent', function() {
   let de: DebugElement;

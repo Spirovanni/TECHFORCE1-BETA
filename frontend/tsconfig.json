@@ -13,16 +13,20 @@
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types",
-      "src/**/*"
+      "dist/src/app/message.ts"
     ],
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "listFiles": true
 //    "include": [
 //      "src/**/*" //or "../src/**/*.ts"
 //    ]
   },
+  "include": [
+    "./src/app/message.ts"
+  ],
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true

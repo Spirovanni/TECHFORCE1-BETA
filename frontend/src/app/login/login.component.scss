@@ -2,6 +2,8 @@
  * login.component.scss Copyright ©️ 2020 by the HabitRabbit developers (ardianq, lachchri16, sweiland, YellowIcicle).
  ******************************************************************************/
 
+$primary: blue;
+
 .full-width {
   width: 100%;
 }
@@ -40,7 +42,8 @@
 }
 
 .mat-raised-button {
-  color: #ffac4e;
+  color: #7BC143;
+  background-color: #124B8B;
   left: 1%;
   width: 45%;
 

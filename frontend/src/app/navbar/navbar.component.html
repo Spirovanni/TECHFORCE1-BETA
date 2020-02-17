@@ -5,9 +5,12 @@
 <mat-sidenav-container *ngIf="userService.hasPermission('HabitRabbit.view_profilepicture')" class="sidenav-container">
   <mat-sidenav-content>
     <mat-toolbar >
-      <button mat-button style="padding: 0.1% 0.1% 0.3% 0.1%; min-width: 35px; line-height: 30px"><i
-        class="material-icons pointer" routerLink="dashboard">home</i></button>
-      <span class="title" routerLink="dashboard">TechForce1</span>
+      <div class="logo">
+<!--        <span class="levelText">{{level}}</span>-->
+      </div>
+<!--      <button mat-button style="padding: 0.1% 0.1% 0.3% 0.1%; min-width: 35px; line-height: 30px"><i-->
+<!--        class="material-icons pointer" routerLink="dashboard">home</i></button>-->
+<!--      <span class="title" routerLink="dashboard">TechForce1</span>-->
       <span class="menuspacer"></span>
       <mat-divider style="height:50%" vertical></mat-divider>
       <ng-container *ngIf="isSuperUser">

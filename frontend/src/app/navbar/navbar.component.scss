@@ -74,6 +74,19 @@
   height: 100%;
 }
 
+.logo {
+  position: relative;
+  right: 0.25em;
+  width: 280px;
+  height: 125px;
+  color: black;
+  text-align: center;
+  background-image: url("../../assets/Resources/navbar/navbar_logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 280px;
+}
+
 .navLevel {
   position: relative;
   right: 0.25em;

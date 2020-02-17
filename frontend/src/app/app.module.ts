@@ -5,8 +5,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import { OverlayContainer } from '@angular/cdk/overlay';
-import { CustomOverlayContainer } from './theme/utils/custom-overlay-container';
+// import { OverlayContainer } from '@angular/cdk/overlay';
+// import { CustomOverlayContainer } from './theme/utils/custom-overlay-container';
 
 import { AgmCoreModule } from '@agm/core';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -170,7 +170,7 @@ export function tokenGetter() {
     deps: [MatSnackBar]
   },
     { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
-    { provide: OverlayContainer, useClass: CustomOverlayContainer }
+    // { provide: OverlayContainer, useClass: CustomOverlayContainer }
 
   ],
   bootstrap: [AppComponent],

@@ -5,6 +5,18 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { CustomOverlayContainer } from './theme/utils/custom-overlay-container';
+
+import { AgmCoreModule } from '@agm/core';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  wheelPropagation: true,
+  suppressScrollX: true
+};
+
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -18,6 +30,7 @@ import {FaqComponent} from './faq/faq.component';
 import {HabitFormComponent} from './habit-form/habit-form.component';
 import {HabitListComponent} from './habit-list/habit-list.component';
 import {LoginComponent} from './login/login.component';
+import {HomeComponent} from './home/home.component';
 import {LogoutComponent} from './logout/logout.component';
 import {MessageFormComponent} from './message-form/message-form.component';
 import {MessageListComponent} from './message-list/message-list.component';
@@ -27,23 +40,6 @@ import {RegisterComponent} from './register/register.component';
 import {TypeFormComponent} from './type-form/type-form.component';
 import {TypeListComponent} from './type-list/type-list.component';
 import {UserListComponent} from './user-list/user-list.component';
-
-// import {
-//   MatAutocompleteModule,-
-//   MatButtonModule,-
-//   MatButtonToggleModule,-
-//   MatCheckboxModule,-
-//   MatDatepickerModule,-
-//   MatDialogModule,
-//   MatExpansionModule,-
-//   MatMenuModule,-
-//   MatProgressBarModule,-
-//   MatSnackBar,-
-//   MatSnackBarModule,-
-//   MatStepperModule,-
-//   MatTabsModule,-
-//   MatTooltipModule-
-// } from '@angular/material';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
@@ -97,6 +93,7 @@ export function tokenGetter() {
     FaqComponent,
     HabitFormComponent,
     HabitListComponent,
+    HomeComponent,
     LoginComponent,
     LogoutComponent,
     MessageFormComponent,
@@ -137,6 +134,9 @@ export function tokenGetter() {
     ReactiveFormsModule,
     MatDialogModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCXb37IjmMUz4yczShwPIyEJ69V-QbMLWA'
+    }),
     JwtModule.forRoot({
       config: {
         tokenGetter,
@@ -162,12 +162,17 @@ export function tokenGetter() {
     NgxChartsModule,
     MatTabsModule,
   ],
-  providers: [{
+  providers: [
+    {
     provide: HTTP_INTERCEPTORS,
     useClass: HttperrorInterceptor,
     multi: true,
     deps: [MatSnackBar]
-  }],
+  },
+    { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
+    { provide: OverlayContainer, useClass: CustomOverlayContainer }
+
+  ],
   bootstrap: [AppComponent],
   entryComponents: [PasswordChangeComponent, DashboardHabitEditComponent, PasswordChangeComponentDash, UserDataChangeComponent],
   exports: [PasswordChangeComponent, DashboardHabitEditComponent, PasswordChangeComponentDash, UserDataChangeComponent]

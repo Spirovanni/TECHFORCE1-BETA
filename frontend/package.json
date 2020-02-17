@@ -1,5 +1,5 @@
 {
-  "name": "habitrabbit",
+  "name": "techforce1",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.1.0",
     "@angular-devkit/core": "^9.0.2",
     "@angular/animations": "^9.0.1",
     "@angular/cdk": "^9.0.0",

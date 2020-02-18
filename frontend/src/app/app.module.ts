@@ -16,6 +16,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { SharedModule } from './shared/shared.module';
+import { PipesModule } from './theme/pipes/pipes.module';
+import { AppSettings } from './app.settings';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -146,6 +148,7 @@ export function tokenGetter() {
       useFactory: adapterFactory
     }),
     SharedModule,
+    PipesModule,
     JwtModule.forRoot({
       config: {
         tokenGetter,
@@ -174,6 +177,7 @@ export function tokenGetter() {
 
   ],
   providers: [
+    AppSettings,
     {
     provide: HTTP_INTERCEPTORS,
     useClass: HttperrorInterceptor,

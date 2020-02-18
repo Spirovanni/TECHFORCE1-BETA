@@ -5,6 +5,8 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from './service/user.service';
 import {ProfilePictureService} from './service/profile-picture.service';
+import { AppSettings } from './app.settings';
+import { Settings } from './app.settings.model';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +16,12 @@ import {ProfilePictureService} from './service/profile-picture.service';
 export class AppComponent implements OnInit {
   title = 'frontend';
 
+  public settings: Settings;
+
   isLoggedIn = false;
 
-  constructor(private userService: UserService, private profilePictureService: ProfilePictureService) {
+  constructor(public appSettings:AppSettings, private userService: UserService, private profilePictureService: ProfilePictureService) {
+    this.settings = this.appSettings.settings;
   }
 
   ngOnInit() {

@@ -20,7 +20,7 @@
             <h2>🎖️️ Level: {{level}} &emsp; 💸 Sky Points: {{score}}</h2>
           </mat-card-subtitle>
           <mat-card-title>
-            Pilot INFORMATION
+            PILOT INFORMATION
           </mat-card-title>
           <mat-card-content class="dashboard-card-content">
             <div class="userWrapper">
@@ -230,13 +230,13 @@
       <mat-card *ngIf="card.title === 'Co-Pilots'" class="dashboard-card" style="overflow: scroll">
         <mat-card-header class="friendsHeader">
           <mat-card-title class="message-header">
-            👨‍👩‍👧‍👦 {{card.title}}
+            👩🏽‍✈️👩‍✈️🧑‍✈️👩🏿‍✈️ {{card.title}}
           </mat-card-title>
 
           <span class="friendspacer"></span>
           <mat-form-field class="friendsFormField">
             <input [formControl]="friendsForm" [matAutocomplete]="auto" id="mat-input-0" matInput
-                   placeholder="Add Friend" type="text">
+                   placeholder="Add Co-Pilot" type="text">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option (click)="onEnterFriend(user)" *ngFor="let user of filteredOptions | async"
                           [value]="user.username">

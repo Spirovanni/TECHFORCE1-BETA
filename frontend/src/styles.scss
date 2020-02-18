@@ -22,6 +22,13 @@
 @import "../node_modules/@swimlane/ngx-datatable/assets/icons.css";
 @import "../node_modules/leaflet/dist/leaflet.css";
 
+@import "app/theme/styles/base";
+@import "app/theme/styles/spaces";
+@import "app/theme/styles/libs-override";
+@import "app/theme/styles/theme";
+@import "app/theme/styles/gradients";
+@import "app/theme/styles/rtl";
+
 @import '~@angular/material/theming';
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.

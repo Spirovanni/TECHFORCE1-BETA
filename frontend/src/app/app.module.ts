@@ -40,13 +40,13 @@ import {RegisterComponent} from './register/register.component';
 import {TypeFormComponent} from './type-form/type-form.component';
 import {TypeListComponent} from './type-list/type-list.component';
 import {UserListComponent} from './user-list/user-list.component';
+
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
-
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -55,7 +55,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTooltipModule } from '@angular/material/tooltip';
-import {LayoutModule} from '@angular/cdk/layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
@@ -68,11 +67,13 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import {LayoutModule} from '@angular/cdk/layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JwtModule} from '@auth0/angular-jwt';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {HttperrorInterceptor} from './httperror.interceptor';
-import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {PasswordChangeComponent, UserFormComponent} from './user-form/user-form.component';
 import {BarRatingModule} from 'ngx-bar-rating-odilo';
 import {MatFaqComponent} from './faq/mat-faq/mat-faq.component';
@@ -116,9 +117,10 @@ export function tokenGetter() {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    LayoutModule,
+
     MatMenuModule,
     MatButtonModule,
-    LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
@@ -131,8 +133,9 @@ export function tokenGetter() {
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    ReactiveFormsModule,
     MatDialogModule,
+
+    ReactiveFormsModule,
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCXb37IjmMUz4yczShwPIyEJ69V-QbMLWA'
@@ -150,23 +153,25 @@ export function tokenGetter() {
       }
     }),
     HttpClientModule,
+    MatMomentDateModule,
     MatStepperModule,
     MatSnackBarModule,
     MatDatepickerModule,
-    MatMomentDateModule,
     MatButtonToggleModule,
     MatCheckboxModule,
     MatDialogModule,
-    FormsModule,
-    BarRatingModule,
-    CommonModule,
-    FlexLayoutModule,
     MatProgressBarModule,
     MatTooltipModule,
     MatAutocompleteModule,
     MatExpansionModule,
-    NgxChartsModule,
     MatTabsModule,
+
+    FormsModule,
+    BarRatingModule,
+    CommonModule,
+    FlexLayoutModule,
+    NgxChartsModule,
+
   ],
   providers: [
     {

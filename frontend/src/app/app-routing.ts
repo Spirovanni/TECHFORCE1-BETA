@@ -3,3 +3,4 @@ import { ModuleWithProviders } from '@angular/core';
 
 import { PagesComponent } from './pages/pages.component';
 import { BlankComponent } from './pages/blank/blank.component';
+import { SearchComponent } from './pages/search/search.component';

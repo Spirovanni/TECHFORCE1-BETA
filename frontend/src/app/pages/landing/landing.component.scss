@@ -19,7 +19,7 @@
         width: 200px;
         button{
             text-transform: capitalize;
-        }        
+        }
     }
     .title-section{
         font-size: 16px;
@@ -39,8 +39,8 @@
     }
     .testimonial-item{
         margin-top: 50px;
-        text-align: center; 
-        overflow: visible;       
+        text-align: center;
+        overflow: visible;
         .text{
             font-style: italic;
         }
@@ -50,7 +50,7 @@
             border-radius: 50%;
             margin-top: -76px;
         }
-    } 
+    }
     #pricing{
         min-height: 10px; //for prevent scroll on tab change
     }
@@ -75,14 +75,14 @@
         }
         .del{
             text-decoration:line-through;
-        }    
-    } 
+        }
+    }
     .landing-footer{
         width: 100%;
         font-size: 14px;
         font-weight: 400;
         height: 68px !important;
-    }    
+    }
 }
 
 .arrow-btn.mat-mini-fab{
@@ -101,8 +101,12 @@
     }
 }
 
-@media screen and (max-width: 599px) { 
+@media screen and (max-width: 599px) {
     .pricing-tabs.mat-tab-group .mat-tab-header{
         width: 210px;
-    }  
+    }
+}
+
+.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+  margin-left: 20px;
 }

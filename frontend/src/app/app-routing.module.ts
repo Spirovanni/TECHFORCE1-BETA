@@ -28,6 +28,8 @@ import {HabitUserResolver} from './resolver/habit-user.resolver';
 import {CurrentUserResolver} from './resolver/current-user.resolver';
 import {AdminGuard} from './admin.guard';
 
+import {LandingComponent} from './pages/landing/landing.component'
+
 
 const routes: Routes = [
   {
@@ -46,6 +48,11 @@ const routes: Routes = [
     path: 'home', component: HomeComponent,
     runGuardsAndResolvers: 'always'
   },
+  { path: 'landing', loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule) },
+  // {
+  //   path: 'landing', component: LandingComponent,
+  //   runGuardsAndResolvers: 'always'
+  // },
   {
     path: 'dashboard',
     component: DashboardComponent,

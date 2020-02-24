@@ -22,6 +22,10 @@ app-content-header {
 }
 
 .landing-toolbar{
+    background-color: #124b8b;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
     position: fixed;
     top: 0;
     height: 56px !important;
@@ -136,5 +140,5 @@ app-content-header {
 
 .p-1 {
   margin-top: -130px;
-  height: 1300px;
+  height: 1500px;
 }

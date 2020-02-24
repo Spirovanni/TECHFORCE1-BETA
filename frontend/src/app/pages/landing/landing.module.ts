@@ -8,6 +8,7 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 // import { NguCarouselModule } from '@ngu/carousel';
 import { NguCarouselModule } from '@stockopedia/carousel';
 import { LandingService } from './landing.service';
+import { HeroComponent } from './hero/hero.component';
 import { LandingComponent } from './landing.component';
 import { MonthlyComponent } from './monthly/monthly.component';
 import { YearlyComponent } from './yearly/yearly.component';
@@ -34,6 +35,7 @@ export const routes = [
   ],
   declarations: [
     LandingComponent,
+    HeroComponent,
     MonthlyComponent,
     YearlyComponent,
     PricingComponent,
@@ -43,8 +45,8 @@ export const routes = [
     FeaturesComponent,
     ContactUsComponent
   ],
-  providers: [ 
-    LandingService 
-  ] 
+  providers: [
+    LandingService
+  ]
 })
 export class LandingModule { }

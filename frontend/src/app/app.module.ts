@@ -1,8 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-// import { OverlayContainer } from '@angular/cdk/overlay';
-// import { CustomOverlayContainer } from './theme/utils/custom-overlay-container';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { CustomOverlayContainer } from './theme/utils/custom-overlay-container';
 
 import { AgmCoreModule } from '@agm/core';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';

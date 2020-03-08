@@ -7,6 +7,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 import { AdminComponent } from './admin.component';
+import { TilesComponent } from './tiles/tiles.component';
 
 export const routes = [
   { path: '', component: AdminComponent, pathMatch: 'full' }
@@ -21,7 +22,8 @@ export const routes = [
     PerfectScrollbarModule
   ],
   declarations: [
-    AdminComponent
+    AdminComponent,
+    TilesComponent,
   ]
 })
 export class AdminModule { }

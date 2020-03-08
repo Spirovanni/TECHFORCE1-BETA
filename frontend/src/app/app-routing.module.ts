@@ -29,6 +29,7 @@ import {CurrentUserResolver} from './resolver/current-user.resolver';
 import {AdminGuard} from './admin.guard';
 
 import {LandingComponent} from './pages/landing/landing.component'
+import {PagesComponent} from "./pages/pages.component";
 
 
 const routes: Routes = [
@@ -49,10 +50,14 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always'
   },
   { path: 'landing', loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule) },
-  // {
-  //   path: 'landing', component: LandingComponent,
-  //   runGuardsAndResolvers: 'always'
-  // },
+
+  {
+    path: 'admin',
+    component: PagesComponent, children: [
+      { path: '', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule), data: { breadcrumb: 'Admin' }}
+    ]
+  },
+
   {
     path: 'dashboard',
     component: DashboardComponent,

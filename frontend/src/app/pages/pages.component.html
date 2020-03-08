@@ -1,7 +1,7 @@
 <div id="main" perfectScrollbar (psScrollY)="onPsScrollY($event)" class="h-100">
 
     <header class="header" [class.over]="showInfoContent">
-        <app-top-info-content [showInfoContent]="showInfoContent" (onCloseInfoContent)="closeInfoContent(showInfoContent)"></app-top-info-content>
+<!--        <app-top-info-content [showInfoContent]="showInfoContent" (onCloseInfoContent)="closeInfoContent(showInfoContent)"></app-top-info-content>-->
 
         <mat-toolbar class="top-toolbar" [class.mat-elevation-z2]="settings.fixedHeader">
             <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
@@ -24,7 +24,7 @@
                     <button mat-icon-button (click)="showInfoContent = !showInfoContent" fxShow="false" fxShow.gt-xs>
                         <mat-icon [@rotate]="showInfoContent" class="mat-icon-lg">expand_more</mat-icon>
                     </button>
-                    <app-favorites fxShow="false" fxShow.gt-sm></app-favorites>
+<!--                    <app-favorites fxShow="false" fxShow.gt-sm></app-favorites>-->
                 </div>
                 <div fxLayout="row" fxLayoutAlign="end center">
                     <div fxLayout="row" fxLayoutAlign="start center" fxShow="false" fxShow.gt-xs class="search-bar">
@@ -35,11 +35,11 @@
                             </button>
                         </form>
                     </div>
-                    <app-flags-menu fxShow="false" fxShow.gt-sm></app-flags-menu>
-                    <app-fullscreen></app-fullscreen>
-                    <app-applications fxShow="false" fxShow.gt-sm></app-applications>
-                    <app-messages fxShow="false" fxShow.gt-xs></app-messages>
-                    <app-user-menu></app-user-menu>
+<!--                    <app-flags-menu fxShow="false" fxShow.gt-sm></app-flags-menu>-->
+<!--                    <app-fullscreen></app-fullscreen>-->
+<!--                    <app-applications fxShow="false" fxShow.gt-sm></app-applications>-->
+<!--                    <app-messages fxShow="false" fxShow.gt-xs></app-messages>-->
+<!--                    <app-user-menu></app-user-menu>-->
                 </div>
             </div>
         </mat-toolbar>
@@ -54,7 +54,7 @@
                     <span class="mx-2">ANNULAR</span>
                 </a>
             </mat-toolbar>
-            <app-sidenav></app-sidenav>
+<!--            <app-sidenav></app-sidenav>-->
         </mat-drawer>
 
         <mat-drawer-content>

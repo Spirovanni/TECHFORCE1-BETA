@@ -8,6 +8,11 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 import { AdminComponent } from './admin.component';
 import { TilesComponent } from './tiles/tiles.component';
+import { InfoCardsComponent } from './info-cards/info-cards.component';
+import { DiskSpaceComponent } from './disk-space/disk-space.component';
+import { TodoComponent } from './todo/todo.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { TeamComponent } from './team/team.component';
 
 export const routes = [
   { path: '', component: AdminComponent, pathMatch: 'full' }
@@ -24,6 +29,11 @@ export const routes = [
   declarations: [
     AdminComponent,
     TilesComponent,
+    InfoCardsComponent,
+    DiskSpaceComponent,
+    TodoComponent,
+    AnalyticsComponent,
+    TeamComponent
   ]
 })
 export class AdminModule { }

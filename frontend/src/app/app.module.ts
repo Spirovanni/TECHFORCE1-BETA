@@ -87,6 +87,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 import { TopInfoContentComponent } from './theme/components/top-info-content/top-info-content.component';
+import { VerticalMenuComponent } from './theme/components/menu/vertical-menu/vertical-menu.component';
+import { HorizontalMenuComponent } from './theme/components/menu/horizontal-menu/horizontal-menu.component';
+import { FavoritesComponent } from './theme/components/favorites/favorites.component';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function tokenGetter() {
@@ -105,7 +108,13 @@ export function tokenGetter() {
     LogoutComponent,
     MessageFormComponent,
     MessageListComponent,
+
     NavbarComponent,
+
+    VerticalMenuComponent,
+    HorizontalMenuComponent,
+    FavoritesComponent,
+
     ProfilePictureFormComponent,
     RegisterComponent,
     TypeFormComponent,

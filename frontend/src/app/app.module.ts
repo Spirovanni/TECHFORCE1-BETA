@@ -95,6 +95,7 @@ import { FlagsMenuComponent } from './theme/components/flags-menu/flags-menu.com
 import { FullScreenComponent } from './theme/components/fullscreen/fullscreen.component';
 import { ApplicationsComponent } from './theme/components/applications/applications.component';
 import { MessagesComponent } from './theme/components/messages/messages.component';
+import { UserMenuComponent } from './theme/components/user-menu/user-menu.component';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function tokenGetter() {
@@ -123,6 +124,7 @@ export function tokenGetter() {
     FullScreenComponent,
     ApplicationsComponent,
     MessagesComponent,
+    UserMenuComponent,
 
     ProfilePictureFormComponent,
     RegisterComponent,

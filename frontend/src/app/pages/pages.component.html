@@ -1,7 +1,7 @@
 <div id="main" perfectScrollbar (psScrollY)="onPsScrollY($event)" class="h-100">
 
     <header class="header" [class.over]="showInfoContent">
-<!--        <app-top-info-content [showInfoContent]="showInfoContent" (onCloseInfoContent)="closeInfoContent(showInfoContent)"></app-top-info-content>-->
+        <app-top-info-content [showInfoContent]="showInfoContent" (onCloseInfoContent)="closeInfoContent(showInfoContent)"></app-top-info-content>
 
         <mat-toolbar class="top-toolbar" [class.mat-elevation-z2]="settings.fixedHeader">
             <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex>

@@ -86,6 +86,8 @@ import {CommonModule} from '@angular/common';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 
+import { TopInfoContentComponent } from './theme/components/top-info-content/top-info-content.component';
+
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -116,7 +118,8 @@ export function tokenGetter() {
     MatFaqComponent,
     DashboardHabitEditComponent,
     PasswordChangeComponentDash,
-    UserDataChangeComponent
+    UserDataChangeComponent,
+    TopInfoContentComponent
   ],
   imports: [
     BrowserModule,

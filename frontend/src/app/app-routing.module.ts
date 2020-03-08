@@ -52,7 +52,7 @@ const routes: Routes = [
   { path: 'landing', loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule) },
 
   {
-    path: 'admin',
+    path: 'pages',
     component: PagesComponent, children: [
       { path: '', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule), data: { breadcrumb: 'Admin' }}
     ]

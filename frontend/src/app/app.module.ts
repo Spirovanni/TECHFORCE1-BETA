@@ -92,6 +92,7 @@ import { VerticalMenuComponent } from './theme/components/menu/vertical-menu/ver
 import { HorizontalMenuComponent } from './theme/components/menu/horizontal-menu/horizontal-menu.component';
 import { FavoritesComponent } from './theme/components/favorites/favorites.component';
 import { FlagsMenuComponent } from './theme/components/flags-menu/flags-menu.component';
+import { FullScreenComponent } from './theme/components/fullscreen/fullscreen.component';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function tokenGetter() {
@@ -117,6 +118,7 @@ export function tokenGetter() {
     HorizontalMenuComponent,
     FavoritesComponent,
     FlagsMenuComponent,
+    FullScreenComponent,
 
     ProfilePictureFormComponent,
     RegisterComponent,

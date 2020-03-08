@@ -32,6 +32,8 @@ import { PagesComponent } from './pages/pages.component';
 import { BlankComponent } from './pages/blank/blank.component';
 import { SearchComponent } from './pages/search/search.component';
 
+import { Tf1Component } from './tf1/tf1.component';
+
 const routes: Routes = [
   {
     path: '', redirectTo: 'dashboard', pathMatch: 'full',
@@ -50,6 +52,13 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always'
   },
   { path: 'landing', loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule) },
+
+  {
+    path: 'tf1',
+    component: PagesComponent, children: [
+      
+  ]
+  },
 
   {
     path: 'pages',

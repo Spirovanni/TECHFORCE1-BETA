@@ -1,13 +1,29 @@
+.pp_color {
+  min-width: 50px;
+  min-height: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px 50px 50px 50px;
+  border-color: black;
+  border-style: solid;
+  overflow: hidden;
+}
+
+.profilepic {
+  width: 50%;
+  height: 50%;
+}
+
 .user-menu{
     .user-info{
         height: 100px;
         width: 250px;
-        box-shadow: none !important;        
+        box-shadow: none !important;
         img{
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            border: 1px solid rgba(0, 0, 0, 0.12); 
+            border-radius: 60%;
+            width: 90px;
+            height: 90px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
         }
         h2{
             font-size: 16px;

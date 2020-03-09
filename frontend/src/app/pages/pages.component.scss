@@ -45,11 +45,11 @@
                padding: 0 8px;
                width: 250px;
             }
-        }       
+        }
     }
 }
 
-.footer{    
+.footer{
     height: $footer-toolbar-height;
     position: relative;
     z-index: 3;
@@ -77,13 +77,13 @@
             width: 46px;
             height: 46px;
             padding: 0;
-            overflow: hidden;            
-            cursor: pointer;  
+            overflow: hidden;
+            cursor: pointer;
             .skin-secondary{
-                width: 0; 
-                height: 0; 
+                width: 0;
+                height: 0;
                 padding: 0;
-                border-bottom: 46px solid; 
+                border-bottom: 46px solid;
                 border-left: 46px solid transparent;
             }
             &.indigo-light{
@@ -182,18 +182,18 @@
     }
 }
 
-@-moz-keyframes spin { 
-    100% { 
-        -moz-transform: rotate(360deg); 
-    } 
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
 }
-@-webkit-keyframes spin { 
-    100% { 
-        -webkit-transform: rotate(360deg); 
-    } 
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
-@keyframes spin { 
-    100% { 
+@keyframes spin {
+    100% {
         transform: rotate(360deg);
     }
 }
@@ -210,8 +210,30 @@
     color: #fff;
     background-color: rgba(0,0,0,.75);
     border-radius: 50%;
-    transition: 0.3s;    
+    transition: 0.3s;
     &:hover{
         opacity: 0.9;
-    }    
+    }
+}
+
+//
+//Transferred from Original
+
+.navLevel {
+  position: relative;
+  right: 0.25em;
+  width: 30px;
+  height: 25px;
+  color: black;
+  text-align: center;
+  background-image: url("../../assets/Resources/navbar/level_icon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25px;
+}
+
+.levelText {
+  position: relative;
+  font-size: 0.80em;
+  top: -15%;
 }

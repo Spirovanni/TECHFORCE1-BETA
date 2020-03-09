@@ -1,3 +1,4 @@
+<!--<app-navbar *ngIf="isLoggedIn"></app-navbar>-->
 <div id="app" class="app" [dir]="(settings.rtl) ? 'rtl' : 'ltr'"
      [ngClass]="settings.theme"
      [class.fixed-header]="settings.fixedHeader"
@@ -6,7 +7,7 @@
      [class.horizontal-menu]="settings.menu == 'horizontal'"
      [class.compact]="settings.menuType == 'compact'"
      [class.mini]="settings.menuType == 'mini'">
-  <app-navbar *ngIf="isLoggedIn"></app-navbar>
+<!--  <app-navbar *ngIf="isLoggedIn"></app-navbar>-->
   <router-outlet></router-outlet>
   <div id="app-spinner" [class.hide]="!settings.loadingSpinner">
 <!--    <mat-spinner color="primary"></mat-spinner>-->

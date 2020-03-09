@@ -4,7 +4,7 @@
         <div fxLayout="row" fxLayoutAlign="center center">
             <img src="assets/img/users/user.jpg" class="mat-elevation-z2" alt="">
             <div class="user-details px-4">
-                <h2>Emilio Verdines</h2>
+                <h2>Xavier Martinez</h2>
                 <h3 class="secondary-text-color">Web developer</h3>
                 <p class="secondary-text-color mt-1">Member since May. 2016</p>
                 <div class="secondary-text-color">
@@ -24,11 +24,11 @@
                         </svg>
                     </button>
                 </div>
-            </div> 
-        </div>                          
+            </div>
+        </div>
     </div>
     <div fxFlex="100" fxFlex.gt-sm="35" fxFlex.sm="50" ngClass.xs="pb-4" class="top-contact-form col">
-        <form [formGroup]="contactForm" (ngSubmit)="onContactFormSubmit(contactForm.value)" fxLayout="row wrap" class="px-2">            
+        <form [formGroup]="contactForm" (ngSubmit)="onContactFormSubmit(contactForm.value)" fxLayout="row wrap" class="px-2">
             <div fxFlex="100" class="">
                 <mat-form-field class="w-100">
                     <input matInput placeholder="Email" formControlName="email" required>
@@ -47,12 +47,12 @@
                     <input matInput placeholder="Message" formControlName="message" required>
                     <mat-error *ngIf="contactForm.controls.message.errors?.required">Message is required</mat-error>
                 </mat-form-field>
-            </div> 
+            </div>
             <div class="w-100 mt-1 text-center">
                 <button mat-raised-button color="accent" type="submit">
                     <mat-icon class="mr-2">send</mat-icon>Send
                 </button>
-            </div> 
+            </div>
         </form>
     </div>
     <div fxFlex="50" fxFlex.gt-sm="25" fxShow="false" fxShow.gt-xs class="py-3 col">
@@ -61,5 +61,5 @@
                 {{control.name}}
             </mat-checkbox>
         </div>
-    </div>    
+    </div>
 </div>

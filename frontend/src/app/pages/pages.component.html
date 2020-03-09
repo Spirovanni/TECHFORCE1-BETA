@@ -1,6 +1,6 @@
 <div id="main" perfectScrollbar (psScrollY)="onPsScrollY($event)" class="h-100">
 
-    <header class="header" [class.over]="showInfoContent">
+    <header class="header" [class.over]="showInfoContent" *ngIf="userService.hasPermission('HabitRabbit.view_profilepicture')">
         <app-top-info-content [showInfoContent]="showInfoContent" (onCloseInfoContent)="closeInfoContent(showInfoContent)"></app-top-info-content>
 
         <mat-toolbar class="top-toolbar" [class.mat-elevation-z2]="settings.fixedHeader">
@@ -35,6 +35,9 @@
                             </button>
                         </form>
                     </div>
+                  <div class="navLevel">
+                    <span class="levelText">{{level}}</span>
+                  </div>
                     <app-flags-menu fxShow="false" fxShow.gt-sm></app-flags-menu>
                     <app-fullscreen></app-fullscreen>
                     <app-applications fxShow="false" fxShow.gt-sm></app-applications>

@@ -44,6 +44,7 @@ import {TypeListComponent} from './type-list/type-list.component';
 import {UserListComponent} from './user-list/user-list.component';
 
 import {PagesComponent} from './pages/pages.component';
+import {Tf1Component} from './tf1/tf1.component';
 
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatButtonModule} from '@angular/material/button';
@@ -134,6 +135,7 @@ export function tokenGetter() {
     UserFormComponent,
     PasswordChangeComponent,
     PagesComponent,
+    Tf1Component,
     MatFaqAdminComponent,
     MatFaqComponent,
     DashboardHabitEditComponent,

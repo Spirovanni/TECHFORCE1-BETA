@@ -1,10 +1,16 @@
-<h1>Ready for the World!</h1>
+<!--<h1>Ready for the World!</h1>-->
+<!--<router-outlet></router-outlet>-->
+<!--<tf1-dashboard></tf1-dashboard>-->
 
-<!--<div id="main" perfectScrollbar (psScrollY)="onPsScrollY($event)" class="h-100">-->
+<div id="main" perfectScrollbar (psScrollY)="onPsScrollY($event)" class="h-100">
 
-<!--    <header class="header" [class.over]="showInfoContent">-->
-<!--        <app-top-info-content [showInfoContent]="showInfoContent" (onCloseInfoContent)="closeInfoContent(showInfoContent)"></app-top-info-content>-->
+    <header class="header" [class.over]="showInfoContent">
+      <app-top-info-content [showInfoContent]="showInfoContent" (onCloseInfoContent)="closeInfoContent(showInfoContent)"></app-top-info-content>
+      <app-navbar *ngIf="isLoggedIn">
+      </app-navbar>
+      <h1>Ready for the World!</h1>
 
+<!--      <app-top-info-content [showInfoContent]="showInfoContent" (onCloseInfoContent)="closeInfoContent(showInfoContent)"></app-top-info-content>-->
 <!--        <mat-toolbar class="top-toolbar" [class.mat-elevation-z2]="settings.fixedHeader">-->
 <!--            <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex>-->
 <!--                <div fxLayout="row" fxLayoutAlign="center center">-->
@@ -45,7 +51,7 @@
 <!--                </div>-->
 <!--            </div>-->
 <!--        </mat-toolbar>-->
-<!--    </header>-->
+    </header>
 
 <!--    <mat-drawer-container class="page-wrapper">-->
 
@@ -157,4 +163,4 @@
 <!--            <mat-icon class="mx-2">shopping_cart</mat-icon>Join TechForce1-->
 <!--        </a>-->
 <!--    </mat-toolbar>-->
-<!--</div>-->
+</div>

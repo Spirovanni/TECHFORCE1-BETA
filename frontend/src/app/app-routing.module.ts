@@ -55,8 +55,8 @@ const routes: Routes = [
 
   {
     path: 'tf1',
-    component: PagesComponent, children: [
-      
+    component: Tf1Component, children: [
+      { path: 'dashboard', loadChildren: () => import('./tf1/dashboard/dashboard.module').then(m => m.DashboardModule), data: { breadcrumb: 'Dashboard' }},
   ]
   },
 

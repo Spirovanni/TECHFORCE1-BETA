@@ -36,7 +36,7 @@ import { Tf1Component } from './tf1/tf1.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'dashboard', pathMatch: 'full',
+    path: '', redirectTo: 'pages', pathMatch: 'full',
     runGuardsAndResolvers: 'always'
   },
   {
@@ -151,7 +151,7 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always'
   },
   {
-    path: '**', component: DashboardComponent, canActivate: [AuthGuard, AdminGuard],
+    path: '**', component: PagesComponent, canActivate: [AuthGuard, AdminGuard],
     runGuardsAndResolvers: 'always'
   },
 

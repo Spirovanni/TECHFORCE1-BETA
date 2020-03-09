@@ -119,4 +119,8 @@ export class UserMenuComponent implements OnInit {
     }
   }
 
+  logout() {
+    this.userService.logout();
+  }
+
 }

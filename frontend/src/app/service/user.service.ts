@@ -32,7 +32,7 @@ export class UserService {
         localStorage.setItem('access_token', res.token);
         this.getUser().subscribe((x: any) => {
           return this.http.patch('/api/user/' + x.id + '/update', {last_login: moment()}).subscribe(() => {
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['pages']);
           });
         });
       }, () => {

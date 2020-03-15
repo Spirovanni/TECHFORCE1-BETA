@@ -9,13 +9,13 @@ export const verticalMenuItems = [
     new Menu (6, 'Users', null, null, 'account_balance_wallet', null, true, 0),
     new Menu (7, 'User List', '/pages/admin', null, 'assignment_ind', null, false, 6),
     new Menu (8, 'New User', '/pages/admin', null, 'perm_identity', null, false, 6),
-    new Menu (9, 'Messages', null, null, 'letter', null, true, 0),
+    new Menu (9, 'Messages', null, null, 'chrome_reader_mode', null, true, 0),
     new Menu (10, 'Message List', '/pages/admin', null, 'view_module', null, false, 9),
     new Menu (11, 'New Message', '/pages/admin', null, 'view_module', null, false, 9),
-    new Menu (12, 'Types', null, null, 'check_box', null, true, 0),
-    new Menu (13, 'Type List', '/pages/admin', null, 'view_module', null, false, 9),
-    new Menu (14, 'New Type', '/pages/admin', null, 'view_module', null, false, 9),
-  
+    new Menu (12, 'Types', null, null, 'tab', null, true, 0),
+    new Menu (13, 'Type List', '/pages/admin', null, 'description', null, false, 12),
+    new Menu (14, 'New Type', '/pages/admin', null, 'view_module', null, false, 12),
+
     new Menu (21, 'Users', '/pages/users', null, 'supervisor_account', null, false, 0),
     new Menu (22, 'UI Features', null, null, 'computer', null, true, 0),
     new Menu (23, 'Buttons', '/pages/ui/buttons', null, 'keyboard', null, false, 22),

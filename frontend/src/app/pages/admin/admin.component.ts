@@ -118,9 +118,83 @@ export class AdminComponent implements OnInit {
   );
   private isErroneos: boolean;
 
-  constructor() { }
+  constructor(private breakpointObserver: BreakpointObserver, private route: ActivatedRoute,
+              private http: HttpClient, private userService: UserService,
+              private profilePictureService: ProfilePictureService, private snackbar: MatSnackBar,
+              public dialog: MatDialog, private fb: FormBuilder, private habitService: HabitService,
+              private messageService: MessageService, private typeService: TypeService, private habitUserResolver: HabitUserResolver) {
+    Object.assign(this, {single});
+    pdfMake.vfs = pdfFonts.pdfMake.vfs;
+  }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.breakpoint = 2;
+    const data: Data = this.route.snapshot.data;
+    if (data.typeOptions) {
+      this.typeOptions = data.typeOptions;
+    }
+    this.friendsList = data.user.friends;
+    this.userService.getAll().subscribe((res2: any[]) => {
+      this.friends = res2.filter(x => data.user.friends.indexOf(x.id) !== -1);
+      this.friends.forEach(f => f.score = f.score.split(',').reverse()[0]);
+      this.friendsList = this.friends.map(f => f.id);
+      this.friendsTable();
+    });
+    this.friendsForm = new FormControl();
+    if (data.users) {
+      this.users = data.users;
+      this.filteredOptions = this.friendsForm.valueChanges
+        .pipe(
+          startWith(''),
+          // eslint-disable-next-line no-underscore-dangle
+          map(value => this._filter(value))
+        );
+    }
+    if (data.habits) {
+      this.habits = data.habits;
+      this.filteredHabits = this.habits.filter(e => {
+        return e.member === this.ID ? e : null;
+      });
+      this.empty = this.filteredHabits.length === 0;
+      this.filteredHabits.sort((a, b) => {
+        return moment(a.start_date).diff(moment(b.start_date));
+      });
+      this.populateInfo(this.filteredHabits);
+    }
+    if (data.user) {
+      this.userId = data.user.id;
+      this.level = data.user.level;
+      this.chartScore = data.user.score;
+      this.score = data.user.score.split(',').reverse()[0];
+      this.email = data.user.email;
+      this.username = data.user.username;
+      this.firstname = data.user.first_name;
+      this.lastname = data.user.last_name;
+      if (data.user.profile_picture === null) {
+        this.profileColor = '#613DB1';
+        this.profileImage = false;
+      } else {
+        this.profilePictureService.getColor(data.user.profile_picture).subscribe((response: any) => {
+          if (response.color === null) {
+            this.profileColor = '#613DB1';
+          } else {
+            this.profileColor = this.profilePictureService.getColorVal(response.color);
+            this.profileColorPop = this.profileColor + '80';
+          }
+          if (response.picture == null) {
+            this.profileImage = false;
+          } else {
+            this.profileImage = '../../assets/Resources/profile_pictures/carrot' + response.picture + '.svg';
+          }
+        });
+      }
+      for (const habit of this.filteredHabits) {
+        this.habitList.push('Habit Name: ' + habit.name + '\t' + 'Finished: ' + habit.is_finished);
+      }
+      this.formatedHabitList = this.habitList.join(',');
+    }
+    this.updateMessage();
+    this.updateCharts();
   }
 
 }

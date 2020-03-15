@@ -133,7 +133,6 @@ export class DashboardComponent implements OnInit {
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
   }
 
-
   ngOnInit(): void {
     this.breakpoint = 2;
     const data: Data = this.route.snapshot.data;

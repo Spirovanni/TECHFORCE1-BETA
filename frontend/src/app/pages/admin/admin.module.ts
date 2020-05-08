@@ -6,7 +6,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
-import { AdminComponent } from './admin.component';
+import { AdminComponent, DashboardHabitEditComponent, PasswordChangeComponentDash, UserDataChangeComponent } from './admin.component';
 import { TilesComponent } from './tiles/tiles.component';
 import { InfoCardsComponent } from './info-cards/info-cards.component';
 import { DiskSpaceComponent } from './disk-space/disk-space.component';
@@ -28,6 +28,9 @@ export const routes = [
   ],
   declarations: [
     AdminComponent,
+    DashboardHabitEditComponent,
+    PasswordChangeComponentDash,
+    UserDataChangeComponent,
     TilesComponent,
     InfoCardsComponent,
     DiskSpaceComponent,

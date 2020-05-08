@@ -689,7 +689,7 @@ export interface HabitDialogData {
 
 @Component({
   selector: 'app-dashboard-habitedit.component',
-  templateUrl: 'dashboard-habitedit.component.html',
+  templateUrl: 'admin-habit-edit.component.html',
 })
 export class DashboardHabitEditComponent {
 

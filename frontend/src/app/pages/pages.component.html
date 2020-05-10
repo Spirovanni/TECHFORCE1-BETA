@@ -5,12 +5,17 @@
 
         <mat-toolbar class="top-toolbar" [class.mat-elevation-z2]="settings.fixedHeader">
             <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
-                <div fxLayout="row" fxLayoutAlign="center center">
-                    <a routerLink="/" fxLayout="row" fxLayoutAlign="start center" class="logo" ngClass.xs="mobile" (click)="closeSubMenus()">
-                        <img src="../../assets/img/logo.png" alt="logo" [@rotate]="showSidenav">
-                        <span class="mx-2">TechForce1</span>
-                    </a>
-                </div>
+<!--                <div fxLayout="row" fxLayoutAlign="center center">-->
+<!--                    <a routerLink="/" fxLayout="row" fxLayoutAlign="start center" class="logo" ngClass.xs="mobile" (click)="closeSubMenus()">-->
+<!--                        <img src="../../assets/img/logo.png" alt="logo" [@rotate]="showSidenav">-->
+<!--                        <span class="mx-2">TechForce1</span>-->
+<!--                    </a>-->
+<!--                </div>-->
+
+              <div class="logo pointer" routerLink="dashboard">
+                <!--        <span class="levelText">{{level}}</span>-->
+              </div>
+
                 <div fxLayout="row" fxLayoutAlign="start center" class="w-100">
                     <button *ngIf="settings.menu == 'vertical'" mat-icon-button (click)="sidenav.toggle()">
                         <mat-icon>menu</mat-icon>

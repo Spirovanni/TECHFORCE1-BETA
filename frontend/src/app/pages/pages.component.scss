@@ -219,6 +219,19 @@
 //
 //Transferred from Original
 
+.logo {
+  position: relative;
+  right: 0.25em;
+  width: 245px;
+  height: 55px;
+  color: black;
+  text-align: center;
+  background-image: url("../../assets/Resources/navbar/navbar_logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 245px;
+}
+
 .navLevel {
   position: relative;
   right: 0.25em;

@@ -43,7 +43,7 @@ export class UserService {
   logout() {
     localStorage.removeItem(this.accessTokenLocalStorageKey);
     this.isLoggedIn.next(false);
-    this.router.navigate(['/landing']);
+    this.router.navigate(['/login']);
   }
 
   hasPermission(permission) {

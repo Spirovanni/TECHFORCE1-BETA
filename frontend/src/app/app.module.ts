@@ -28,6 +28,13 @@ import {
   PasswordChangeComponentDash,
   UserDataChangeComponent
 } from './dashboard/dashboard.component';
+
+import {
+  HabitDashboardHabitEditComponent,
+  HabitPasswordChangeComponentDash,
+  HabitUserDataChangeComponent
+} from './pages/habit-dashboard/barbicon/barbicon.component';
+
 import {FaqComponent} from './faq/faq.component';
 import {HabitFormComponent} from './habit-form/habit-form.component';
 import {HabitListComponent} from './habit-list/habit-list.component';
@@ -139,8 +146,11 @@ export function tokenGetter() {
     MatFaqAdminComponent,
     MatFaqComponent,
     DashboardHabitEditComponent,
+    HabitDashboardHabitEditComponent,
     PasswordChangeComponentDash,
+    HabitPasswordChangeComponentDash,
     UserDataChangeComponent,
+    HabitUserDataChangeComponent,
     TopInfoContentComponent
   ],
   imports: [
@@ -217,8 +227,8 @@ export function tokenGetter() {
 
   ],
   bootstrap: [AppComponent],
-  entryComponents: [PasswordChangeComponent, DashboardHabitEditComponent, PasswordChangeComponentDash, UserDataChangeComponent],
-  exports: [PasswordChangeComponent, DashboardHabitEditComponent, PasswordChangeComponentDash, UserDataChangeComponent]
+  entryComponents: [PasswordChangeComponent, DashboardHabitEditComponent, HabitDashboardHabitEditComponent, PasswordChangeComponentDash, HabitPasswordChangeComponentDash, UserDataChangeComponent],
+  exports: [PasswordChangeComponent, DashboardHabitEditComponent, DashboardHabitEditComponent, PasswordChangeComponentDash, HabitPasswordChangeComponentDash, UserDataChangeComponent]
 })
 export class AppModule {
 }

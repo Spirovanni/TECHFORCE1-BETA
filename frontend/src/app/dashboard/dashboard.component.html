@@ -71,6 +71,8 @@
           </mat-card-content>
         </mat-card>
       </mat-card>
+
+
       <mat-card *ngIf="card.title === 'Active Habits'" class="dashboard-card" style="overflow: scroll">
         <mat-card-header>
           <mat-card-title class="message-header">
@@ -158,6 +160,7 @@
           </mat-card>
         </mat-card-content>
       </mat-card>
+
       <mat-card *ngIf="card.title === 'PIREP' && !empty" class="dashboard-card">
         <mat-card-header>
           <mat-card-title class="message-header">
@@ -210,6 +213,7 @@
           </mat-card>
         </mat-card-content>
       </mat-card>
+
       <mat-card *ngIf="card.title === 'Daily Message' && !empty" class="dashboard-card">
         <mat-card class="messageCard">
           <mat-card-header>
@@ -227,6 +231,7 @@
           </mat-card-header>
         </mat-card>
       </mat-card>
+
       <mat-card *ngIf="card.title === 'Co-Pilots'" class="dashboard-card" style="overflow: scroll">
         <mat-card-header class="friendsHeader">
           <mat-card-title class="message-header">
@@ -275,9 +280,12 @@
           </mat-paginator>
         </mat-card-content>
       </mat-card>
+
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+
+
 <footer><span class="footertext">&#9400;&ensp;️2020 TechForce Team 🛫</span>
   <button class="faqbutton" color="warn" mat-raised-button routerLink="../faq">FAQ</button>
 </footer>

@@ -36,7 +36,7 @@ import { Tf1Component } from './tf1/tf1.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'pages', pathMatch: 'full',
+    path: '', redirectTo: 'landing', pathMatch: 'full',
     runGuardsAndResolvers: 'always'
   },
   {
@@ -64,6 +64,7 @@ const routes: Routes = [
     path: 'pages',
     component: PagesComponent, children: [
       { path: '', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule), data: { breadcrumb: 'Admin' }},
+      { path: 'habit-dashboard', loadChildren: () => import('./pages/habit-dashboard/habit-dashboard.module').then(m => m.HabitDashboardModule), data: { breadcrumb: 'Habit Dashboard' } },
       { path: 'habit-dashboard', loadChildren: () => import('./pages/habit-dashboard/habit-dashboard.module').then(m => m.HabitDashboardModule), data: { breadcrumb: 'Habit Dashboard' } },
       { path: 'users', loadChildren: () => import('./pages/users/users.module').then(m => m.UsersModule), data: { breadcrumb: 'Users' } },
       { path: 'ui', loadChildren: () => import('./pages/ui/ui.module').then(m => m.UiModule), data: { breadcrumb: 'UI' } },

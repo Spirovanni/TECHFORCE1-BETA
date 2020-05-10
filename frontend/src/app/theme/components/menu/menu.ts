@@ -2,7 +2,7 @@ import { Menu } from './menu.model';
 
 export const verticalMenuItems = [
     new Menu (1, 'Dashboard', '/pages', null, 'dashboard', null, false, 0),
-    new Menu (2, 'Admin', '/pages/admin', null, 'folder', null, false, 0),
+    new Menu (2, 'Habit Dashboard', '/pages/habit-dashboard', null, 'folder', null, false, 0),
     new Menu (3, 'Habits', null, null, 'check_box', null, true, 0),
     new Menu (4, 'Habit List', '/pages/admin', null, 'view_module', null, false, 3),
     new Menu (5, 'New Habit', '/pages/admin', null, 'view_module', null, false, 3),

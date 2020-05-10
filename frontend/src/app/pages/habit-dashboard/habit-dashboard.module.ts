@@ -1,16 +1,35 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { SharedModule } from '../../shared/shared.module';
-// import { BarComponent } from './bar/bar.component';
+import { BarbiconComponent } from './barbicon/barbicon.component';
+import {AuthGuard} from '../../auth.guard';
+import {UserResolver} from '../../resolver/user.resolver';
+import {HabitResolver} from '../../resolver/habit.resolver';
+import {HabitUserResolver} from '../../resolver/habit-user.resolver';
+import {CurrentUserResolver} from '../../resolver/current-user.resolver';
+import {AdminGuard} from '../../admin.guard';
+import {TypesResolver} from "../../resolver/types.resolver";
+import {UsersResolver} from "../../resolver/users.resolver";
 // import { BubbleComponent } from './bubble/bubble.component';
 // import { LineComponent } from './line/line.component';
 // import { PieComponent } from './pie/pie.component';
 
 export const routes = [
-  { path: '', redirectTo: 'bar', pathMatch: 'full'},
-  // { path: 'bar', component: BarComponent, data: { breadcrumb: 'Bar Charts' } },
+  {
+    path: '',
+    redirectTo: 'barbicon',
+    pathMatch: 'full'
+  },
+  {
+    path: 'barbicon',
+    component: BarbiconComponent,
+    data: { breadcrumb: 'Barbicon' },
+    canActivate: [AuthGuard],
+    resolve: {habits: HabitUserResolver, typeOptions: TypesResolver, user: CurrentUserResolver, users: UsersResolver},
+    // runGuardsAndResolvers: 'always'
+    },
   // { path: 'pie', component: PieComponent, data: { breadcrumb: 'Pie Charts' } },
   // { path: 'line', component: LineComponent, data: { breadcrumb: 'Line Charts' } },
   // { path: 'bubble', component: BubbleComponent, data: { breadcrumb: 'Bubble Charts' } }
@@ -23,8 +42,9 @@ export const routes = [
     NgxChartsModule,
     SharedModule
   ],
+  exports: [RouterModule],
   declarations: [
-    // BarComponent,
+    BarbiconComponent
     // BubbleComponent,
     // LineComponent,
     // PieComponent

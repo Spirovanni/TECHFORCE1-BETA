@@ -66,6 +66,7 @@ const routes: Routes = [
       { path: '', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule), data: { breadcrumb: 'Admin' }},
       { path: 'habit-dashboard', loadChildren: () => import('./pages/habit-dashboard/habit-dashboard.module').then(m => m.HabitDashboardModule), data: { breadcrumb: 'Habit Dashboard' } },
       { path: 'habit-list', loadChildren: () => import('./pages/habit-list/habit-list.module').then(m => m.DashHabitListModule), data: { breadcrumb: 'Habit List' } },
+      { path: 'messages', loadChildren: () => import('./pages/messages/messages.module').then(m => m.DashMessageListModule), data: { breadcrumb: 'Messages' } },
       { path: 'users', loadChildren: () => import('./pages/users/users.module').then(m => m.UsersModule), data: { breadcrumb: 'Users' } },
       { path: 'ui', loadChildren: () => import('./pages/ui/ui.module').then(m => m.UiModule), data: { breadcrumb: 'UI' } },
       { path: 'dynamic-menu', loadChildren: () => import('./pages/dynamic-menu/dynamic-menu.module').then(m => m.DynamicMenuModule), data: { breadcrumb: 'Dynamic Menu' }  },

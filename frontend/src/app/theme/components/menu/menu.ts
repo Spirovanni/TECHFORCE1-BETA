@@ -5,7 +5,7 @@ export const verticalMenuItems = [
     new Menu (2, 'Habit Dashboard', '/pages/habit-dashboard/barbicon', null, 'folder', null, false, 0),
     new Menu (3, 'Habits', null, null, 'check_box', null, true, 0),
     new Menu (4, 'Habit List', '/pages/habit-list/habit-list', null, 'view_list', null, false, 3),
-    new Menu (5, 'New Habit', '/pages/admin', null, 'view_module', null, false, 3),
+    new Menu (5, 'New Habit', '/pages/habit-list/habit-form', null, 'launch', null, false, 3),
     new Menu (6, 'Users', null, null, 'account_balance_wallet', null, true, 0),
     new Menu (7, 'User List', '/pages/admin', null, 'assignment_ind', null, false, 6),
     new Menu (8, 'New User', '/pages/admin', null, 'perm_identity', null, false, 6),

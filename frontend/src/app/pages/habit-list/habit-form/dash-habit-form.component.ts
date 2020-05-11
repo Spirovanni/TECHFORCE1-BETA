@@ -12,8 +12,8 @@ import {UserService} from '../../../service/user.service';
 
 @Component({
   selector: 'app-habit-form',
-  templateUrl: './habit-form.component.html',
-  styleUrls: ['./habit-form.component.scss']
+  templateUrl: './dash-habit-form.component.html',
+  styleUrls: ['./dash-habit-form.component.scss']
 })
 export class DashHabitFormComponent implements OnInit {
 

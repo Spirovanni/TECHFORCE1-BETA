@@ -1,0 +1,195 @@
+/*!*********************************************************************************************************************
+ * profile-picture-form.component.scss Copyright © 2020 by the HabitRabbit developers (ardianq, lachchri16, sweiland, YellowIcicle).
+ *                                                                                                                    *
+ **********************************************************************************************************************/
+
+mat-card-title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+
+.full-width {
+  width: 100%;
+}
+
+.mat-radio-button {
+  display: block;
+  margin: 5px 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+.red {
+  background-color: #ff1744;
+}
+
+.green {
+  background-color: #00e676;
+}
+
+.turquoise {
+  background-color: #00e5ff;
+}
+
+.yellow {
+  background-color: #ffea00;
+}
+
+.orange {
+  background-color: #ff9100;
+}
+
+.violet {
+  background-color: #2979ff;
+}
+
+.blue {
+  background-color: #b388ff;
+}
+
+.brown {
+  background-color: #d4e157;
+}
+
+.color_picker {
+  display: none;
+}
+
+mat-grid-tile {
+  width: 2%;
+}
+
+mat-form-field {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.colors {
+   width: 80%;
+ }
+
+.pictures {
+  width: 80%;
+}
+
+.pictures_title {
+  padding-top: 5%;
+}
+
+.selector {
+  width: 18.5rem;
+  height: 12rem;
+  color: transparent;
+  font-size: 1.5em;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.deleteS {
+  padding-top: 3%;
+  align-content: center;
+  margin-left: 44.7%;
+}
+
+.delete {
+  position: relative;
+  width: 10rem;
+  height: 3rem;
+  color: white;
+  text-shadow: -1px 1px black;
+  font-size: 1.5em;
+  background-color: #673AB7;
+
+}
+
+.delete:hover {
+  cursor: pointer;
+}
+
+.selector:hover {
+  color: white;
+  text-shadow: -1px 1px black;
+  cursor: pointer;
+}
+
+.preview {
+  padding-left: 2%;
+  width: 50%;
+}
+
+.imagepreview {
+  border-style: solid;
+  border-radius: 10px;
+  width: 60%;
+  height: 60%;
+  margin-left: 20%;
+  margin-top: 10%;
+}
+
+.picturepreview {
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.colorV {
+  border-radius: 2px;
+  border-style: solid;
+}
+
+.image {
+  border-radius: 2px;
+  border-style: solid;
+}
+
+.colors {
+  margin-left: 10%;
+}
+
+.pictures {
+  margin-left: 10%;
+}
+
+footer {
+  background-color: #613DB1;
+  height: 50px;
+  font-size: larger;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  width: 100%;
+}
+
+.footertext {
+  position: relative;
+  top: 25%;
+  left: 2%;
+}
+
+.faqbutton {
+  position: relative;
+  float: right;
+  right: 1em;
+  top: 15%;
+}
+
+

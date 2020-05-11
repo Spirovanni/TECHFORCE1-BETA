@@ -52,7 +52,8 @@ export const routes = [
   ],
   exports: [RouterModule],
   declarations: [
-    DashHabitListComponent
+    DashHabitListComponent,
+    DashHabitFormComponent
     // BubbleComponent,
     // LineComponent,
     // PieComponent

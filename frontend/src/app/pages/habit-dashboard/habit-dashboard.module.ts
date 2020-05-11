@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { SharedModule } from '../../shared/shared.module';
 import { BarbiconComponent } from './barbicon/barbicon.component';
+import { DashProfilePictureFormComponent } from './profile-picture-form/dash-profile-picture-form.component'
 import {AuthGuard} from '../../auth.guard';
 import {UserResolver} from '../../resolver/user.resolver';
 import {HabitResolver} from '../../resolver/habit.resolver';
@@ -29,7 +30,15 @@ export const routes = [
     canActivate: [AuthGuard],
     resolve: {habits: HabitUserResolver, typeOptions: TypesResolver, user: CurrentUserResolver, users: UsersResolver},
     // runGuardsAndResolvers: 'always'
-    },
+  },
+  {
+    path: 'profile-picture-form',
+    component: DashProfilePictureFormComponent,
+    data: { breadcrumb: 'Profile Picture' },
+    canActivate: [AuthGuard],
+    resolve: {habits: HabitUserResolver, typeOptions: TypesResolver, user: CurrentUserResolver, users: UsersResolver},
+    // runGuardsAndResolvers: 'always'
+  },
   // { path: 'pie', component: PieComponent, data: { breadcrumb: 'Pie Charts' } },
   // { path: 'line', component: LineComponent, data: { breadcrumb: 'Line Charts' } },
   // { path: 'bubble', component: BubbleComponent, data: { breadcrumb: 'Bubble Charts' } }
@@ -44,7 +53,8 @@ export const routes = [
   ],
   exports: [RouterModule],
   declarations: [
-    BarbiconComponent
+    BarbiconComponent,
+    DashProfilePictureFormComponent
     // BubbleComponent,
     // LineComponent,
     // PieComponent

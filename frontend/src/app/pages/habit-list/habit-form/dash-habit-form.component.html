@@ -1,6 +1,11 @@
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ~ habit-form.component.html Copyright ©️ 2020 by the HabitRabbit developers (ardianq, lachchri16, sweiland, YellowIcicle).
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<app-content-header
+  [icon]="'launch'"
+  [title]="'New Habit Form'"
+  [hideBreadcrumb]="false"
+  [hasBgImage]="true"
+  [class]="'pb-4'">
+
+</app-content-header>
 
 <form (ngSubmit)="onSubmit()" *ngIf="userService.hasPermission('HabitRabbit.change_habit') && isSuperuser" [formGroup]="habitForm"
       novalidate>

@@ -1,6 +1,10 @@
 .content-header{
     color: #fff;
+  mat-icon {
+    align-content: center;
+  }
     text-align: center;
+    align-content: center;
     img{
         width: 130px;
         height: 130px;
@@ -10,7 +14,7 @@
         font-size: 36px;
         font-weight: 400;
         margin: 0;
-    } 
+    }
     h4{
         font-size: 16px;
         font-weight: 300;
@@ -19,14 +23,14 @@
         margin: 0 auto;
     }
     &.bg-image{
-        background-image: url("../../../assets/img/app/header-bg.png");     
+        background-image: url("../../../assets/img/app/header-bg.png");
         background-blend-mode: overlay;
-        background-size: 300px; 
+        background-size: 300px;
     }
 }
 
 
-@media screen and (min-width: 960px) {    
+@media screen and (min-width: 960px) {
     .content-header{
         img{
             width: 150px;
@@ -34,12 +38,12 @@
         }
         h1{
             font-size: 48px;
-        } 
+        }
         h4{
             font-size: 18px;
         }
         &.has-bg-image{
-            background-size: 480px; 
+            background-size: 480px;
         }
     }
 }

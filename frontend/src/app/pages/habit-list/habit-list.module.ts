@@ -12,6 +12,7 @@ import {CurrentUserResolver} from '../../resolver/current-user.resolver';
 import {AdminGuard} from '../../admin.guard';
 import {TypesResolver} from "../../resolver/types.resolver";
 import {UsersResolver} from "../../resolver/users.resolver";
+import {DashHabitFormComponent} from "./habit-form/dash-habit-form.component";
 // import { BubbleComponent } from './bubble/bubble.component';
 // import { LineComponent } from './line/line.component';
 // import { PieComponent } from './pie/pie.component';
@@ -26,6 +27,14 @@ export const routes = [
     path: 'habit-list',
     component: DashHabitListComponent,
     data: { breadcrumb: 'Habit List' },
+    canActivate: [AuthGuard],
+    resolve: {habits: HabitUserResolver, typeOptions: TypesResolver, user: CurrentUserResolver, users: UsersResolver},
+    // runGuardsAndResolvers: 'always'
+  },
+  {
+    path: 'habit-form',
+    component: DashHabitFormComponent,
+    data: { breadcrumb: 'Habit Form' },
     canActivate: [AuthGuard],
     resolve: {habits: HabitUserResolver, typeOptions: TypesResolver, user: CurrentUserResolver, users: UsersResolver},
     // runGuardsAndResolvers: 'always'

@@ -11,7 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 
-import {DashHabitFormComponent} from './habit-form.component';
+import {DashHabitFormComponent} from './dash-habit-form.component';
 
 describe('HabitFormComponent', () => {
   let component: DashHabitFormComponent;

@@ -6,9 +6,9 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, ValidatorFn, Validators} from '@angular/forms';
 import * as moment from 'moment';
 import {ActivatedRoute, Router} from '@angular/router';
-import {HabitService} from '../service/habit.service';
+import {HabitService} from '../../../service/habit.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {UserService} from '../service/user.service';
+import {UserService} from '../../../service/user.service';
 
 @Component({
   selector: 'app-habit-form',

@@ -12,8 +12,8 @@ import {UserService} from '../../../service/user.service';
 
 @Component({
   selector: 'app-message-form',
-  templateUrl: './message-form.component.html',
-  styleUrls: ['./message-form.component.scss']
+  templateUrl: './dash-message-form.component.html',
+  styleUrls: ['./dash-message-form.component.scss']
 })
 export class DashMessageFormComponent implements OnInit {
   messageForm;

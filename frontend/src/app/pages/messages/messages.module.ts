@@ -4,7 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { SharedModule } from '../../shared/shared.module';
 import { DashMessageListComponent } from './message-list/dash-message-list.component';
-import { DashMessageFormComponent } from './message-form/message-form.component';
+import { DashMessageFormComponent } from './message-form/dash-message-form.component';
 import {AuthGuard} from '../../auth.guard';
 import {UserResolver} from '../../resolver/user.resolver';
 import {HabitResolver} from '../../resolver/habit.resolver';
@@ -31,7 +31,7 @@ export const routes = [
   },
   {
     path: 'message-form',
-    component: DashMessageListComponent,
+    component: DashMessageFormComponent,
     data: { breadcrumb: 'Message Form' },
     canActivate: [AuthGuard],
     resolve: {habits: HabitUserResolver, typeOptions: TypesResolver, user: CurrentUserResolver, users: UsersResolver},

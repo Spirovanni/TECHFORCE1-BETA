@@ -6,9 +6,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTable, MatTableDataSource} from '@angular/material/table';
-import {TypeService} from '../service/type.service';
-import {FAQService} from '../service/faq.service';
-import {UserService} from '../service/user.service';
+import {TypeService} from '../../service/type.service';
+import {FAQService} from '../../service/faq.service';
+import {UserService} from '../../service/user.service';
 
 export interface TypeListItem {
   id: number;
@@ -18,11 +18,11 @@ export interface TypeListItem {
 }
 
 @Component({
-  selector: 'app-type-list',
-  templateUrl: './type-list.component.html',
-  styleUrls: ['./type-list.component.scss']
+  selector: 'dash-app-type-list',
+  templateUrl: './dash-type-list.component.html',
+  styleUrls: ['./dash-type-list.component.scss']
 })
-export class TypeListComponent implements OnInit {
+export class DashTypeListComponent implements OnInit {
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
   @ViewChild(MatTable, {static: false}) table: MatTable<TypeListItem>;

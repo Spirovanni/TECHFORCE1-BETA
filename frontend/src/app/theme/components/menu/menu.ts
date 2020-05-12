@@ -13,7 +13,7 @@ export const verticalMenuItems = [
     new Menu (10, 'Message List', '/pages/messages/message-list', null, 'perm_media', null, false, 9),
     new Menu (11, 'New Message', '/message-form', null, 'note_add', null, false, 9),
     new Menu (12, 'Types', null, null, 'tab', null, true, 0),
-    new Menu (13, 'Type List', '/pages/admin', null, 'description', null, false, 12),
+    new Menu (13, 'Type List', '/type-list', null, 'description', null, false, 12),
     new Menu (14, 'New Type', '/pages/admin', null, 'view_module', null, false, 12),
 
     new Menu (21, 'Users', '/pages/users', null, 'supervisor_account', null, false, 0),

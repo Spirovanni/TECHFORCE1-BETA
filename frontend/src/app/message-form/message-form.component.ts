@@ -50,12 +50,12 @@ export class MessageFormComponent implements OnInit {
     if (message.id) {
       this.messageService.updateMessage(message)
         .subscribe(() => {
-          this.router.navigate(['/message-list/']);
+          this.router.navigate(['/pages/messages/message-list/']);
         });
     } else {
       this.messageService.saveMessage(message)
         .subscribe((response: any) => {
-          this.router.navigate(['/message-list/']);
+          this.router.navigate(['/pages/messages/message-list/']);
         });
     }
   }

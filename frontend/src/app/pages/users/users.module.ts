@@ -8,7 +8,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from '../../shared/shared.module';
 import { PipesModule } from '../../theme/pipes/pipes.module';
 import { UsersComponent } from './users.component';
-import { UsersListComponent } from './user-list/users-list.component'
+import { UsersListComponent } from './user-list/users-list.component';
+import { UsersFormComponent } from './user-form/users-form.component';
 import { UsersData } from './users.data';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { AuthGuard } from "../../auth.guard";
@@ -45,6 +46,14 @@ export const routes = [
     resolve: {habits: HabitUserResolver, typeOptions: TypesResolver, user: CurrentUserResolver, users: UsersResolver},
     // runGuardsAndResolvers: 'always'
   },
+  {
+    path: 'users-form',
+    component: UsersFormComponent,
+    data: { breadcrumb: 'User Form' },
+    canActivate: [AuthGuard],
+    resolve: {habits: HabitUserResolver, typeOptions: TypesResolver, user: CurrentUserResolver, users: UsersResolver},
+    // runGuardsAndResolvers: 'always'
+  },
   // { path: 'pie', component: PieComponent, data: { breadcrumb: 'Pie Charts' } },
   // { path: 'line', component: LineComponent, data: { breadcrumb: 'Line Charts' } },
   // { path: 'bubble', component: BubbleComponent, data: { breadcrumb: 'Bubble Charts' } }
@@ -65,6 +74,7 @@ export const routes = [
   declarations: [
     UsersComponent,
     UsersListComponent,
+    UsersFormComponent,
     UserDialogComponent
   ],
   entryComponents:[

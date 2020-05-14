@@ -5,16 +5,16 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UserService} from '../service/user.service';
+import {UserService} from '../../../service/user.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-user-form',
-  templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.scss']
+  selector: 'app-users-form',
+  templateUrl: './users-form.component.html',
+  styleUrls: ['./users-form.component.scss']
 })
 export class UsersFormComponent implements OnInit {
   public userForm: FormGroup;
@@ -110,7 +110,7 @@ export class UsersFormComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(PasswordChangeComponent, {
+    const dialogRef = this.dialog.open(PasswordsChangeComponent, {
       width: '250px',
       data: {password: this.password, password_check: this.password_check, old_password: this.old_password}
     });
@@ -148,13 +148,13 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'app-password-change.component',
-  templateUrl: 'password-change.component.html',
+  selector: 'app-passwords-change.component',
+  templateUrl: 'passwords-change.component.html',
 })
-export class PasswordChangeComponent {
+export class PasswordsChangeComponent {
 
   constructor(
-    public dialogRef: MatDialogRef<PasswordChangeComponent>,
+    public dialogRef: MatDialogRef<PasswordsChangeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
   }
 
